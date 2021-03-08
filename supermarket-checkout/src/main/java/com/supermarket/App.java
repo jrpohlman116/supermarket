@@ -12,7 +12,7 @@ public class App
         
         System.out.println("\nItems for Sale: ");
         inventory.checkInventory();
-        Checkout checkout = new Checkout(inventory.getInventoryList());
+        Checkout checkout = new Checkout();
 
         System.out.println("\nPlease scan your items one by one. At any time, you can "
             + "type CANCEL to exit the transaction, or DONE to finish paying.\n");
