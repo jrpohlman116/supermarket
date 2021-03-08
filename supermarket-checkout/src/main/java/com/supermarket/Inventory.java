@@ -14,19 +14,8 @@ import org.json.simple.parser.*;
 import org.json.*;
 
 public class Inventory {
-    private static Map<String, Item> inventoryList = new HashMap<>();
-
-    /**
-     * Get inventory list object
-     * @return inventoryList
-     */
-    public static Map<String, Item> getInventoryList() {
-        return inventoryList;
-    }
-
-    public void updateInventoryList(Item item) {
-        inventoryList.put(item.getName(), item);
-    }
+    // Object to keep track of the active inventory with the item name as the key
+    public static Map<String, Item> inventoryList = new HashMap<>();
 
     /**
      * Create a inventory list by reading from a json file located in the root directory 

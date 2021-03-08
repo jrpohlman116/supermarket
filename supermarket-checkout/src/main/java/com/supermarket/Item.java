@@ -41,7 +41,7 @@ public class Item {
     }
 
     public void subtractFromQuantity() {
-        this.quantity = this.quantity - 1;
+        this.quantity--;
     }
 
     public int getPrice() {

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Checkout {
-    private Map<String, Item> inventory = Inventory.getInventoryList();
+    private Map<String, Item> inventory = Inventory.inventoryList;
     private Map<String, Item> cart = new HashMap<>();
     private int totalPrice = 0;
 
@@ -20,7 +20,7 @@ public class Checkout {
         Item cartItem = cart.get(scannedItemName);
         // Add the item to the cart if it hasn't been added previously
         if (cartItem == null){
-            cart.put(scannedItemName, inventoryItem);
+            cart.put(scannedItemName, new Item(inventoryItem.getName(), String.valueOf(inventoryItem.getPrice()), "0"));
             cartItem = cart.get(scannedItemName);
         }
 
@@ -29,14 +29,17 @@ public class Checkout {
     }
 
     /**
-     * Check to see if the scanned item by the user is in the current inventory
+     * Check to see if the scanned item by the user is in the current inventory then subtract from the inventory
      * @param scannedItemName
      * @return scannedItem
      */
     private Item checkInventory(String scannedItemName) {
         Item scannedItem = inventory.get(scannedItemName);
-        if (scannedItem == null) {
+        if (scannedItem == null || scannedItem.getQuantity() == 0) {
             System.out.println("The item you tried to scan is not in our inventory.");
+            return null;
+        } else {
+            scannedItem.subtractFromQuantity();
         }
 
         return scannedItem;
