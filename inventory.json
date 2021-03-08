@@ -1,0 +1,27 @@
+{
+    "03-07-2021": [
+        {
+            "name": "A",
+            "price": 50,
+            "quantity": 10,
+            "specialPrice": "3 for 130"
+        },
+        {
+            "name": "B",
+            "price": 30,
+            "quantity": 5,
+            "specialPrice": "2 for 45"
+        },
+        {
+            "name": "C",
+            "price": 20,
+            "quantity": 2
+        },
+        {
+            "name": "D",
+            "price": 15,
+            "quantity": 2
+        }
+    ]
+}
+
