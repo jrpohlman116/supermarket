@@ -17,4 +17,9 @@ When considering how to handle the special pricing, we first have to see what th
 ### Inventory
 Inventory at supermarkets is taken at certain intervals. The json file that contains the inventory for this program is organized by date, and the checkout will only get the inventory for the current day. 
 
-
+### How to Run
+```
+cd supermarket-checkout
+mvn compile
+mvn exec:java
+```
