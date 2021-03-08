@@ -1,12 +1,14 @@
 package com.supermarket;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Checkout {
+    private static DecimalFormat decFormat = new DecimalFormat("0.00");
     private Map<String, Item> inventory = Inventory.inventoryList;
     private Map<String, Item> cart = new HashMap<>();
-    private int totalPrice = 0;
+    private double totalPrice = 0;
 
     /**
      * Check the inventory, then add the item to the cart
@@ -49,7 +51,7 @@ public class Checkout {
      * Call the pricing service to add up the quantities of each item in the cart
      * @return totalPrice
      */
-    public int calculateTotal() {
+    public double calculateTotal() {
         for (Item item : cart.values()) {
             this.totalPrice += PricingService.calculatePrice(item);
         }
@@ -64,7 +66,7 @@ public class Checkout {
         for (Item item : cart.values()) {
             System.out.println(item.toString());
         }
-        System.out.println("Total: \t\t" + this.totalPrice);
+        System.out.println("Total: \t\t$" + decFormat.format(this.totalPrice));
     }
     
 }

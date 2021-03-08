@@ -15,6 +15,7 @@ import org.json.*;
 
 public class Inventory {
     // Object to keep track of the active inventory with the item name as the key
+    // Made public for the users of the class
     public static Map<String, Item> inventoryList = new HashMap<>();
 
     /**
@@ -33,7 +34,7 @@ public class Inventory {
             JSONArray todaysInventory = (JSONArray) salesJson.get(todayFormatted);
 
             for (int i = 0; i < todaysInventory.length(); i++){
-                JSONObject jsonItem = todaysInventory.getJSONObject(i); 
+                JSONObject jsonItem = todaysInventory.getJSONObject(i);
 
                 Item item = new Item(jsonItem.get("name").toString(), jsonItem.get("price").toString(), jsonItem.get("quantity").toString());
                 if (jsonItem.has("specialPrice")){

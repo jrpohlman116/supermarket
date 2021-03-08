@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Item {
     private String name;
     private int quantity = 0;
-    private int price;
+    private double price;
     private int[] discount;
     private String specialPrice;
 
@@ -20,7 +20,7 @@ public class Item {
 
     public Item(String name, String price, String quantity){
         this.name = name.toUpperCase();
-        this.price = Integer.parseInt(price);
+        this.price = Double.parseDouble(price);
         this.quantity = Integer.parseInt(quantity);
     }
 
@@ -44,11 +44,11 @@ public class Item {
         this.quantity--;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return this.price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -62,7 +62,7 @@ public class Item {
     }
 
     public String toString() {
-        return "Item: " + this.name + "\t\tPrice: " + this.price + "\t\tQuantity: " + this.quantity 
+        return "Item: " + this.name + "\t\tPrice: $" + this.price + "\t\tQuantity: " + this.quantity 
         + (this.specialPrice == null ? "" : "\n\t\tDiscount: " + this.specialPrice);
     }
 }

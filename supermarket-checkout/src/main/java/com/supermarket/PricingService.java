@@ -6,7 +6,7 @@ public class PricingService {
      * @param item
      * @return total price for a given item
      */
-    public static int calculatePrice(Item item) {
+    public static double calculatePrice(Item item) {
         int[] discount = item.getDiscount();
         int quantity = item.getQuantity();
         
