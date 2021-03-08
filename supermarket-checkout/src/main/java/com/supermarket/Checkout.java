@@ -24,6 +24,9 @@ public class Checkout {
         if (cartItem == null){
             cart.put(scannedItemName, new Item(inventoryItem.getName(), String.valueOf(inventoryItem.getPrice()), "0"));
             cartItem = cart.get(scannedItemName);
+            if (inventoryItem.getSpecialPrice() != null){
+                cartItem.setDiscount(inventoryItem.getSpecialPrice());
+            }
         }
 
         // Increase the quantity of the item in the cart
@@ -35,7 +38,7 @@ public class Checkout {
      * @param scannedItemName
      * @return scannedItem
      */
-    private Item checkInventory(String scannedItemName) {
+    public Item checkInventory(String scannedItemName) {
         Item scannedItem = inventory.get(scannedItemName);
         if (scannedItem == null || scannedItem.getQuantity() == 0) {
             System.out.println("The item you tried to scan is not in our inventory.");
@@ -67,6 +70,14 @@ public class Checkout {
             System.out.println(item.toString());
         }
         System.out.println("Total: \t\t$" + decFormat.format(this.totalPrice));
+    }
+
+    public Map<String, Item> getCart() {
+        return cart;
+    }
+
+    public void clearCart() {
+        cart.clear();
     }
     
 }

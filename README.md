@@ -23,3 +23,10 @@ cd supermarket-checkout
 mvn compile
 mvn exec:java
 ```
+
+### Running Tests
+```
+cd supermarket-checkout
+mvn compile
+mvn surefire:test -Dtest=CheckoutTest
+```

@@ -56,6 +56,10 @@ public class Item {
         return this.discount;
     }
 
+    public String getSpecialPrice() {
+        return this.specialPrice;
+    }
+
     public void setDiscount(String specialPrice) {
         this.specialPrice = specialPrice;
         this.discount = Arrays.stream(specialPrice.split(" for ")).mapToInt(Integer::parseInt).toArray();
